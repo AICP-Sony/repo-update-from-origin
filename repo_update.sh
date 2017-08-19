@@ -180,22 +180,5 @@ git pull --no-edit los cm-14.1
 git push github n7.1
 
 echo -e "\n"
-echo "******************"
-echo "build"
-echo "******************"
-
-cd $builddir/build
-git rev-parse --abbrev-ref @ | grep n7.1 >/dev/null
-if [ "$?" == "1" ] ; then
-	git checkout n7.1
-fi
-git ls-remote --heads mordiford n7.1 | grep n7.1 >/dev/null
-if [ "$?" == "1" ] ; then
-	git remote add mordiford https://github.com/mordiford/build.git
-fi
-git pull --no-edit mordiford n7.1
-git push github n7.1
-
-echo -e "\n"
 echo "* Updated successfully!"
 cd $builddir
